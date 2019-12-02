@@ -1,6 +1,7 @@
 #include <iostream>
 #include "day1.h"
+#include "day2.h"
 
 int main() {
-	std::cout<<fuel_sum();
+	check_equals();
 }
