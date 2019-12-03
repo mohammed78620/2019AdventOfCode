@@ -125,15 +125,18 @@
   <ItemGroup>
     <ClCompile Include="day1.cpp" />
     <ClCompile Include="Day2.cpp" />
+    <ClCompile Include="day3.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="day1.h" />
     <ClInclude Include="day2.h" />
+    <ClInclude Include="day3.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt" />
     <Text Include="Text1.txt" />
+    <Text Include="Text2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
