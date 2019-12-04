@@ -32,10 +32,10 @@ int count_num_password() {
 }
 bool check_increase(const std::vector<int>& v) {
 	
-	for (int i = 0; i < v.size()-1; i++) {
+	for (int i = 0; i < v.size(); i++) {
 		int j = i;
 		for (; j < v.size(); j++) {
-			if (i > j) {
+			if (v.at(i) > v.at(j)) {
 				return false;
 			}
 		}
@@ -43,6 +43,16 @@ bool check_increase(const std::vector<int>& v) {
 	return true;
 }
 bool check_pair(const std::vector<int>& v) {
+	std::vector<int>::const_iterator it;
+	it = std::adjacent_find(v.begin(), v.end());
+	while (it != v.end()) {
+		if (*(it + 2) == *it && *(it + 3) != *it) {
+			return false;
+		}
+		it++;
+		it = std::adjacent_find(v.begin(), v.end());
+	}
+
 	if (std::adjacent_find(v.begin(), v.end()) != v.end()) {
 		return true;
 	}
