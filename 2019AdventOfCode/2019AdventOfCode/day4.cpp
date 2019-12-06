@@ -42,21 +42,31 @@ bool check_increase(const std::vector<int>& v) {
 	}
 	return true;
 }
-bool check_pair(const std::vector<int>& v) {
-	std::vector<int>::const_iterator it;
+bool check_pair(std::vector<int>& v) {
+	std::vector<int>::iterator it;
 	it = std::adjacent_find(v.begin(), v.end());
 	while (it != v.end()) {
-		if (*(it + 2) == *it && *(it + 3) != *it) {
+		if (check_if_odd(it, v)) {
 			return false;
 		}
+		
+		it = std::adjacent_find(++it, v.end());
+	}
+	return true;
+}
+bool check_if_odd(std::vector<int>::iterator &it,const std::vector<int>& v) {
+	int count = 0;
+	int value = *it;
+	
+	while (it!=v.end() && *it == value) {
+		count++;
 		it++;
-		it = std::adjacent_find(v.begin(), v.end());
 	}
+	if (count % 2 != 0) {
+		return false;
+	}
+	return true;
 
-	if (std::adjacent_find(v.begin(), v.end()) != v.end()) {
-		return true;
-	}
-	return false;
 }
 void print_array(const std::vector<int>& v) {
 	for (int i = 0; i < v.size(); i++) {
